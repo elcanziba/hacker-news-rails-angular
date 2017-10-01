@@ -1,0 +1,23 @@
+<div class="card" *ngIf="showen">
+  <div class="card-content">
+
+    <span class="card-title" [routerLink]="['/post/'+post.id]">{{ post.title }}</span>
+
+    <p>{{ post.description }}</p>
+    <a href="{{ post.source }}">
+      Read more
+    </a>from {{ post.origin }}<br>
+    <i [routerLink]="['/wall/'+post.user.id]">{{ post.user.nickname }}</i>
+  </div>
+  <div class="card-action">
+
+    <button [routerLink]="['/post/'+post.id+'/edit']">Edit</button>
+    <button (click)="deletePost()">Delete</button>
+
+
+    <div class="admin-actions" *ngIf="post.to_approve">
+      <button (click)="approve()">approve</button>
+      <button (click)="disapprove()">disapprove</button>
+    </div>
+  </div>
+</div>

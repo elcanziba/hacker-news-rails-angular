@@ -1,0 +1,55 @@
+<form (ngSubmit)="updatePost()" #f="ngForm" >
+
+
+  <div class="row">
+
+    <div class="input-field col s12">
+      <input id="title"
+             type="text"
+             required
+             name='title'
+             value="{{ post.title }}"
+             [(ngModel)]="post.title"
+             class="validate">
+
+      <label for="email">Title</label>
+    </div>
+
+
+    <div class="input-field col s12">
+      <textarea id="description"
+             required
+             name='description'
+             value="{{ post.description }}"
+             [(ngModel)]="post.description"
+             class="validate materialize-textarea">
+      </textarea>
+
+      <label for="description">Description</label>
+    </div>
+
+    <div class="input-field col s12">
+      <input id="source"
+             type="text"
+             required
+             name='source'
+             value="{{ post.source }}"
+             [(ngModel)]="post.source"
+             class="validate">
+
+      <label for="email">Source</label>
+    </div>
+
+    <div class="col s12 " style="margin-top: 15px">
+      <button type="submit"
+              [disabled]="!(f.valid)"
+              [ngClass]="{'disabled': !(f.valid)}"
+              class="waves-effect waves-light btn blue right"
+      >
+        Save </button>
+    </div>
+
+
+  </div>
+
+</form>

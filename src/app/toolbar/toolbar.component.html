@@ -1,0 +1,39 @@
+<!--Navigation-->
+<div class="navbar-fixed">
+
+  <nav  role="navigation">
+
+    <div class="nav-wrapper blue ">
+      <ul class="left hide-on-med-and-down">
+        <li>
+          <a [routerLink]="['']" id="logo-container" class="logo">HKR News</a>
+        </li>
+        <li>
+          <a [routerLink]="['/jobs']">Jobs</a>
+        </li>
+        <li>
+          <a *ngIf='(authService.admin$ | async)' [routerLink]="['/users']">Users</a>
+        </li>
+        <li>
+          <a *ngIf='(authService.admin$ | async)'  [routerLink]="['/posts/manage']">Manage Posts</a>
+        </li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+
+        <li><a [routerLink]="['/new']">Add Post</a></li>
+
+        <li *ngIf="!(authService.userSignedIn$ | async)"> <a (click)="presentAuthDialog()" >LOGIN</a></li>
+        <li *ngIf="!(authService.userSignedIn$ | async)"> <a (click)="presentAuthDialog('register')">REGISTER</a></li>
+
+        <li *ngIf="(authService.userSignedIn$ | async)"><a [routerLink]="['/profile']">PROFILE</a></li>
+        <li *ngIf="(authService.userSignedIn$ | async)"><a (click)="logOut()">LOGOUT</a></li>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+</div>
+
+<app-auth-dialog #authDialog ></app-auth-dialog>

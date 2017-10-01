@@ -1,0 +1,9 @@
+<div class="edit-comment">
+  <textarea placeholder="Your comment." class="materialize-textarea" [(ngModel)]="comment.content"></textarea>
+
+  <button type="submit"
+          (click)="updateComment()"
+          class="waves-effect waves-light btn blue right"
+  >
+    Save </button>
+</div>

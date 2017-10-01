@@ -1,0 +1,10 @@
+<h4>{{ user.nickname }}</h4>
+<h5>{{ user.email }}</h5>
+
+<button *ngIf="user.blocked" (click)="blockUser()">Remove block</button>
+<button *ngIf="!user.blocked" (click)="blockUser()">Block</button>
+
+
+<button *ngIf="user.admin" (click)="admin()">Remove admin privileges</button>
+<button *ngIf="!user.admin" (click)="admin()">Make him admin</button>
+<hr>

@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="filter">
+    <select [(ngModel)]="sortByTime" name="sortByTime" id="sortByTime" (change)="restart()" style="display: block">
+      <option value="true">Latest</option>
+      <option value="false">Top</option>
+    </select>
+  </div>
+
+  <div class="col s12">
+    <ul>
+      <li *ngFor="let post of posts">
+        <app-manage-post [post]=post></app-manage-post>
+      </li>
+    </ul>
+
+  </div>
+  <div class="end-of-page">
+    <a class="show-more" (click)="loadMore()">{{ showText }}</a>
+  </div>
+</div>

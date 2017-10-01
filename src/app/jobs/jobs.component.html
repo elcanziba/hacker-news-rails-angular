@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let job of posts">
+    <app-job [job]=job></app-job>
+  </li>
+</ul>
+<div class="end-of-page">
+  <a class="show-more" (click)="loadMore()">{{ showText }}</a>
+</div>

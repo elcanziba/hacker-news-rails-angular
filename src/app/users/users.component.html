@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let user of users">
+    <app-user [user]=user></app-user>
+  </li>
+</ul>
+
+<div class="end-of-page">
+  <a class="show-more" (click)="loadMore()">{{ showText }}</a>
+</div>

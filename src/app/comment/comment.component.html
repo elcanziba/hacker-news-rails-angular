@@ -1,0 +1,11 @@
+<div *ngIf="showing">
+  <div *ngIf="!editingMode.value">
+    <p>{{ comment.content }}</p>
+    <i>{{ comment.user.nickname }}</i>
+    <button class="waves-effect waves-light btn blue" (click)="toggleEditing()">EDIT</button>
+    <button class="waves-effect waves-light btn blue" (click)="delete()">DELETE</button>
+  </div>
+  <app-edit-comment *ngIf="editingMode.value" [editingMode]=editingMode [comment]=comment ></app-edit-comment>
+
+  <hr>
+</div>

@@ -1,0 +1,32 @@
+<div class="card" *ngIf="showen">
+  <div class="card-content">
+    {{ post.kind }}
+    <span class="card-title" [routerLink]="['/post/'+post.id]">{{ post.title }}</span>
+
+    <p>{{ post.description }}</p>
+    <a href="{{ post.source }}">
+      Read more
+    </a>from {{ post.origin }}<br>
+    <i [routerLink]="['/wall/'+post.user.id]">{{ post.user.nickname }}</i>
+  </div>
+  <div class="card-action">
+    <div>
+      <i class="zmdi zmdi-check"></i>{{ post.upvote }}
+    </div>
+    <div>
+      {{ post.downvote }}
+    <div>
+
+    <button (click)="sendUpVote()">+</button>
+    <button (click)="sendDownVote()">-</button>
+
+    <button *ngIf="owner" [routerLink]="['/post/'+post.id+'/edit']">Edit</button>
+    <button *ngIf="owner" (click)="deletePost()">Delete</button>
+
+
+    <div class="admin-actions" *ngIf="post.to_approve">
+      <button (click)="approve()">approve</button>
+      <button (click)="disapprove()">disapprove</button>
+    </div>
+  </div>
+</div>

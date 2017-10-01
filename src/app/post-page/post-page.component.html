@@ -1,0 +1,48 @@
+<div class="card" *ngIf="loaded">
+  <div class="card-content">
+
+    <span class="card-title">
+      {{ post.title }}
+      <span class="badge" *ngIf="!post.approved">
+        Not approved yet
+      </span>
+    </span>
+
+    <p>{{ post.description }}</p>
+    <i [routerLink]="['/wall/'+post.user.id]">{{ post.user.email }}</i>
+  </div>
+  <div class="card-action">
+    <div>
+      <i class="zmdi zmdi-check"></i>{{ post.upvote }}
+    </div>
+    <div>
+      {{ post.downvote }}
+    </div>
+
+    <button (click)="sendUpVote()">+</button>
+    <button (click)="sendDownVote()">-</button>
+
+    <button class="waves-effect waves-light btn blue" *ngIf="owner" [routerLink]="['/post/'+post.id+'/edit']">Edit</button>
+    <button class="waves-effect waves-light btn blue" *ngIf="owner" (click)="deletePost()">Delete</button>
+
+  </div>
+</div>
+
+<div class="comments card-action">
+  <h4>Comments</h4>
+  <div class="new-comment">
+    <textarea placeholder="Your comment." class="materialize-textarea" [(ngModel)]="newComment.content"></textarea>
+
+    <button type="submit"
+            (click)="addComment()"
+            class="waves-effect waves-light btn blue right"
+    >
+      Add </button>
+  </div>
+
+  <div class="listing">
+    <div *ngFor="let comment of comments">
+      <app-comment [comment]=comment ></app-comment>
+    </div>
+  </div>
+</div>

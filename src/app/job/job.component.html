@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ job.title }}</span>
+    <p>{{ job.description }}</p>
+    <a href="{{ job.source }}">
+      Read more
+    </a>from {{ job.origin }}<br>
+    <i [routerLink]="['/wall/'+job.user.id]">{{ job.user.nickname }}</i>
+  </div>
+</div>

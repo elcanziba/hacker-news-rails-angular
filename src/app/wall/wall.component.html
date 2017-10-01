@@ -1,0 +1,7 @@
+<h1>
+  {{ user.email }}'s wall
+</h1>
+<app-posts [posts]=posts></app-posts>
+<div class="end-of-page">
+  <a class="show-more" (click)="loadMore()">{{ showText }}</a>
+</div>
