@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vues: 1
+  user: one
+  title: MyString
+  description: MyText
+  source: MyString
+  upvote: 1
+  downvote: 1
+
+two:
+  vues: 1
+  user: two
+  title: MyString
+  description: MyText
+  source: MyString
+  upvote: 1
+  downvote: 1
